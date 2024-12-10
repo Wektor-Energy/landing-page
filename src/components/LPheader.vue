@@ -6,8 +6,13 @@
     <div class="header-content">
       <img alt="Wektor logo" src="@/assets/images/logo1.png" />
       <div v-if="!isSmallScreen">
-        <div v-for="(opt, index) in navOptions" :key="index">
-          <h4>{{ opt }}</h4>
+        <div
+          v-for="(opt, index) in navOptions"
+          :key="index"
+          class="nav-option"
+          @click="onClick(opt.id)"
+        >
+          <h4>{{ opt.label }}</h4>
         </div>
       </div>
     </div>
@@ -28,9 +33,14 @@
     </div>
     <div class="options-container" v-if="sidebarIsOpen && isSmallScreen">
       <template v-if="sidebarOptionsOpen">
-        <lp-button class="sidebar-button">Área do Cliente</lp-button>
-        <div v-for="(opt, index) in navOptions" :key="index">
-          <h4>{{ opt }}</h4>
+        <lp-button :style="{ alignSelf: 'stretch' }">Área do Cliente</lp-button>
+        <div
+          v-for="(opt, index) in navOptions"
+          :key="index"
+          class="nav-option"
+          @click="goToSection(opt.id)"
+        >
+          <h4>{{ opt.label }}</h4>
         </div>
       </template>
       <template v-if="sidebarLanOpen">
@@ -75,6 +85,10 @@ export default {
     navOptions: {
       type: Array,
       required: false,
+    },
+    onClick: {
+      type: Function,
+      required: true,
     },
   },
   data() {
@@ -121,12 +135,16 @@ export default {
         this.sidebarLanOpen = true;
       }
     },
+    goToSection(id) {
+      this.onClick(id);
+      this.toggleSidebar();
+    },
   },
 };
 </script>
 
 <style scoped>
-h4 {
+.nav-option {
   cursor: pointer;
 }
 
@@ -155,10 +173,11 @@ img {
 }
 
 .options-container {
+  z-index: 2;
   position: absolute;
   left: 0%;
   top: calc(0% + var(--header-heigth));
-  width: 100vw;
+  width: 100%;
 
   padding: 20px;
   gap: 20px;
@@ -166,7 +185,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background: var(--Bluebird-100);
+  background: var(--primary-100);
 }
 
 .header-content {

@@ -57,11 +57,11 @@ export default {
 }
 
 .selected {
-  background: var(--Bluebird-100);
+  background: var(--primary-100);
   justify-content: space-between;
 }
 
 .selected label {
-  color: var(--Bluebird-700);
+  color: var(--primary-700);
 }
 </style>

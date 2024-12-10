@@ -1,7 +1,10 @@
 :root {
     --Scale-3: 16px;
+    --Scale-6: 32px;
+    --Scale-8: 48px;
     --w-regular: 400;
     --w-semibold: 600;
+    --w-bold: 700;
 
     --White: #fff;
     --Black: #000;
@@ -9,11 +12,10 @@
     --Silver-300: #E5E5E5;
     --Silver-600: #BFBFBF;
 
-    --Bluebird-100: #F2F7F8;
-    --Bluebird-700: #008A9F;
     --Blue-100: #F2F7F8;
     --Blue-300: #C6DCE3;
 
+    --primary-100: #F2F7F8;
     --primary-600: #009AB2;
     --primary-700: #008A9F;
     --secondary-600: #EAB817;
@@ -24,6 +26,12 @@
     --sds-size-space-200: 8px;
     --sds-size-space-300: 12px;
     --sds-size-space-400: 16px;
+
+    --sds-typography-title-page-font-family: Inter;
+    --sds-typography-title-page-size-base: var(--Scale-8);
+    --sds-typography-title-page-font-weight: var(--w-bold);
+    --sds-typography-subtitle-size-base: var(--Scale-6);
+    --sds-typography-subtitle-font-family: Inter;
 
     --font-primary: 'Inter', sans-serif;
     --sds-typography-body-font-family: Inter, sans-serif;

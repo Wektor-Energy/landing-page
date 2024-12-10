@@ -6,7 +6,6 @@ export function useScreenSize() {
     const isSmallScreen = ref(window.innerWidth <= threshold);
 
     const checkScreenSize = () => {
-        console.log(window.innerWidth)
         isSmallScreen.value = window.innerWidth <= threshold;
     };
 
