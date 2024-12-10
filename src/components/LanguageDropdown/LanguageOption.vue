@@ -31,13 +31,23 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .option-style {
     display: flex;
-    padding: 12px;
+    padding: 12px 0px;
     justify-content: space-between;
     align-items: center;
     color: var(--Black);
+}
+
+.option-style label {
+    cursor: inherit;
+    color: var(--Black);
+    font-family: var(--sds-typography-body-font-family);
+    font-size: var(--sds-typography-body-size-medium);
+    font-style: normal;
+    font-weight: var(--sds-typography-body-font-weight-regular);
+    line-height: 150%;
 }
 
 .selected {

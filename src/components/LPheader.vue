@@ -9,22 +9,36 @@
       </div>
     </div>
     <div class="header-options">
-      <language-dropdown :options="options" :onClick="updateOptions" />
-      <lp-button v-if="!isSmallScreen">Área do Cliente</lp-button>
-      <side-button v-if="isSmallScreen" :onClick="openSidebar" :sidebarOpened="sidebarOpen" />
+      <template v-if="!isSmallScreen">
+        <language-dropdown :options="languages" :onClick="updateOptions" />
+        <lp-button>Área do Cliente</lp-button>
+      </template>
+      <!-- Mobile abaixo -->
+      <template v-if="isSmallScreen">
+        <language-button :onClick="toggleLanOptions" :isDropdownOpen="false" :short="selectedLanguage.short" />
+        <side-button :onClick="toggleSidebar" :sidebarOpened="sidebarIsOpen" />
+      </template>
     </div>
-    <div class="options-container" v-if="sidebarOpen && isSmallScreen">
-      <lp-button class="client-button">Área do Cliente</lp-button>
-      <div v-for="(opt, index) in navOptions" :key="index">
-        <h4>{{ opt }}</h4>
-      </div>
+    <div class="options-container" v-if="sidebarIsOpen && isSmallScreen">
+      <template v-if="sidebarOptionsOpen">
+        <lp-button class="sidebar-button">Área do Cliente</lp-button>
+        <div v-for="(opt, index) in navOptions" :key="index">
+          <h4>{{ opt }}</h4>
+        </div>
+      </template>
+      <template v-if="sidebarLanOpen">
+        <language-option v-for="option in languages" :key="option.id" :option="option" :onClick="updateOptions"
+          class="sidebar-button" />
+      </template>
     </div>
   </header>
 </template>
 
 <script>
 import { useScreenSize } from '@/hooks/useScreenSize';
-import LanguageDropdown from './LanguageDropdown.vue';
+import LanguageButton from './LanguageDropdown/LanguageButton.vue';
+import LanguageOption from './LanguageDropdown/LanguageOption.vue';
+import LanguageDropdown from './LanguageDropdown/LanguageDropdown.vue';
 import LpButton from './LpButton.vue';
 import SideButton from './SideButton.vue';
 
@@ -32,7 +46,6 @@ export default {
   name: "LpHeader",
   setup() {
     const { isSmallScreen } = useScreenSize(); // Use the composable
-
     return {
       isSmallScreen,
     };
@@ -40,6 +53,8 @@ export default {
   components: {
     "lp-button": LpButton,
     "side-button": SideButton,
+    "language-button": LanguageButton,
+    "language-option": LanguageOption,
     "language-dropdown": LanguageDropdown,
   },
   props: {
@@ -50,21 +65,14 @@ export default {
   },
   data() {
     return {
-      options: [
+      languages: [
         { id: 1, long: 'Português', short: 'PT', selected: true },
         { id: 2, long: 'English', short: 'EN', selected: false },
         // { id: 3, long: 'Option 3', short: 'O3', selected: false },
       ],
-      sidebarOpen: false
+      sidebarOptionsOpen: false,
+      sidebarLanOpen: false,
     };
-  },
-  methods: {
-    updateOptions(id) {
-      this.options.forEach(e => e.selected = e.id == id);
-    },
-    openSidebar(isOpen) {
-      this.sidebarOpen = isOpen
-    }
   },
   computed: {
     cssVars() {
@@ -72,18 +80,51 @@ export default {
         '--header-heigth': "80px",
       };
     },
+    selectedLanguage() {
+      return this.languages.find(e => e.selected)
+    },
+    sidebarIsOpen() {
+      return this.sidebarLanOpen || this.sidebarOptionsOpen
+    },
+  },
+  methods: {
+    updateOptions(id) {
+      this.languages.forEach(e => e.selected = e.id == id);
+    },
+    toggleSidebar() {
+      if (this.sidebarIsOpen) {
+        this.sidebarOptionsOpen = false
+        this.sidebarLanOpen = false
+      }
+      else {
+        this.sidebarOptionsOpen = true
+      }
+    },
+    toggleLanOptions() {
+      if (this.sidebarLanOpen) {
+        this.sidebarLanOpen = false
+      }
+      else {
+        this.sidebarOptionsOpen = false
+        this.sidebarLanOpen = true
+      }
+    }
   },
 }
 </script>
 
 <style scoped>
+h4 {
+  cursor: pointer;
+}
+
 img {
   width: 120px;
   height: 48px;
   flex-shrink: 0;
 }
 
-.client-button {
+.sidebar-button {
   width: 100%;
 }
 
@@ -129,7 +170,6 @@ img {
   display: flex;
   gap: 2.5vw;
 }
-
 
 .header-options {
   display: flex;

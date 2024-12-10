@@ -1,12 +1,10 @@
 <template>
-    <div class="button-style" :class="[{ 'no-hover': isDropdownOpen }, buttonClass]" @click="toggleDropdown">
-        <label>
-            {{ selectedOption.short }}
-        </label>
-        <!-- Dropdown content -->
+    <div class="dropdown-container">
+        <language-button :isDropdownOpen="isDropdownOpen" :short="selectedOption.short" :onClick="toggleDropdown" />
         <div v-if="isDropdownOpen" class="dropdown-content" ref="dropdown">
             <ul>
-                <language-option v-for="option in options" :key="option.id" :option="option" :onClick="selectOption" />
+                <language-option v-for="option in options" :key="option.id" :option="option" :onClick="selectOption"
+                    class="option-style" />
             </ul>
         </div>
     </div>
@@ -14,6 +12,7 @@
 
 <script>
 import LanguageOption from './LanguageOption.vue';
+import LanguageButton from './LanguageButton.vue';
 
 export default {
     name: "LanguageDropdown",
@@ -28,7 +27,8 @@ export default {
         },
     },
     components: {
-        "language-option": LanguageOption
+        "language-option": LanguageOption,
+        "language-button": LanguageButton
     },
     data() {
         return {
@@ -42,6 +42,7 @@ export default {
             };
         },
         selectedOption() {
+            console.log(this.options)
             return this.options.find(e => e.selected)
         },
     },
@@ -73,47 +74,18 @@ export default {
 </script>
 
 <style scoped>
-.button-style {
-    display: inline-flex;
-    padding: 12px;
-    align-items: center;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0);
+.dropdown-container {
     position: relative;
 }
 
-.button-style:hover {
+.option-style {
+    padding: 16px !important;
     cursor: pointer;
-    border: 1px solid var(--Silver-300);
-    background: var(--Silver-100);
-}
-
-.button-clicked,
-.button-style.no-hover:hover {
-    border: 1px solid var(--Blue-300);
-    background: var(--Blue-100);
-}
-
-.button-style.no-hover:hover {
-    cursor: default;
-}
-
-.button-style label {
-    cursor: inherit;
-    color: var(--Black);
-    text-align: center;
-    font-family: var(--sds-typography-body-font-family);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%;
-    /* Esse valor está estático visto que a letra muda a largura do botão */
-    width: 21px;
 }
 
 .dropdown-content {
     position: absolute;
-    top: 130%;
+    top: 120%;
     right: 0%;
     background: var(--White);
     border: 1px solid var(--Silver-300);

@@ -31,7 +31,7 @@ export default {
     },
     methods: {
         toggleDropdown() {
-            this.onClick(!this.sidebarOpened)
+            this.onClick()
         },
     },
 }
