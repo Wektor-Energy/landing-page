@@ -1,7 +1,10 @@
 <template>
-  <header :class="['header-container', { 'phone-padding': isSmallScreen }]" :style="cssVars">
+  <header
+    :class="['header-container', { 'phone-padding': isSmallScreen }]"
+    :style="cssVars"
+  >
     <div class="header-content">
-      <img alt="Wektor logo" src="@/assets/images/logo1.png">
+      <img alt="Wektor logo" src="@/assets/images/logo1.png" />
       <div v-if="!isSmallScreen">
         <div v-for="(opt, index) in navOptions" :key="index">
           <h4>{{ opt }}</h4>
@@ -15,7 +18,11 @@
       </template>
       <!-- Mobile abaixo -->
       <template v-if="isSmallScreen">
-        <language-button :onClick="toggleLanOptions" :isDropdownOpen="false" :short="selectedLanguage.short" />
+        <language-button
+          :onClick="toggleLanOptions"
+          :isDropdownOpen="false"
+          :short="selectedLanguage.short"
+        />
         <side-button :onClick="toggleSidebar" :sidebarOpened="sidebarIsOpen" />
       </template>
     </div>
@@ -27,20 +34,27 @@
         </div>
       </template>
       <template v-if="sidebarLanOpen">
-        <language-option v-for="option in languages" :key="option.id" :option="option" :onClick="updateOptions"
-          class="sidebar-button" />
+        <language-option
+          v-for="option in languages"
+          :key="option.id"
+          :option="option"
+          :onClick="updateOptions"
+          class="sidebar-button"
+        />
       </template>
     </div>
   </header>
 </template>
 
 <script>
-import { useScreenSize } from '@/hooks/useScreenSize';
-import LanguageButton from './LanguageDropdown/LanguageButton.vue';
-import LanguageOption from './LanguageDropdown/LanguageOption.vue';
-import LanguageDropdown from './LanguageDropdown/LanguageDropdown.vue';
-import LpButton from './LpButton.vue';
-import SideButton from './SideButton.vue';
+import { useScreenSize } from "@/hooks/useScreenSize";
+import {
+  LanguageButton,
+  LanguageOption,
+  LanguageDropdown,
+} from "@/components/LanguageDropdown";
+import LpButton from "@/components/LpButton.vue";
+import SideButton from "@/components/SideButton.vue";
 
 export default {
   name: "LpHeader",
@@ -61,13 +75,13 @@ export default {
     navOptions: {
       type: Array,
       required: false,
-    }
+    },
   },
   data() {
     return {
       languages: [
-        { id: 1, long: 'Português', short: 'PT', selected: true },
-        { id: 2, long: 'English', short: 'EN', selected: false },
+        { id: 1, long: "Português", short: "PT", selected: true },
+        { id: 2, long: "English", short: "EN", selected: false },
         // { id: 3, long: 'Option 3', short: 'O3', selected: false },
       ],
       sidebarOptionsOpen: false,
@@ -77,40 +91,38 @@ export default {
   computed: {
     cssVars() {
       return {
-        '--header-heigth': "80px",
+        "--header-heigth": "80px",
       };
     },
     selectedLanguage() {
-      return this.languages.find(e => e.selected)
+      return this.languages.find((e) => e.selected);
     },
     sidebarIsOpen() {
-      return this.sidebarLanOpen || this.sidebarOptionsOpen
+      return this.sidebarLanOpen || this.sidebarOptionsOpen;
     },
   },
   methods: {
     updateOptions(id) {
-      this.languages.forEach(e => e.selected = e.id == id);
+      this.languages.forEach((e) => (e.selected = e.id == id));
     },
     toggleSidebar() {
       if (this.sidebarIsOpen) {
-        this.sidebarOptionsOpen = false
-        this.sidebarLanOpen = false
-      }
-      else {
-        this.sidebarOptionsOpen = true
+        this.sidebarOptionsOpen = false;
+        this.sidebarLanOpen = false;
+      } else {
+        this.sidebarOptionsOpen = true;
       }
     },
     toggleLanOptions() {
       if (this.sidebarLanOpen) {
-        this.sidebarLanOpen = false
+        this.sidebarLanOpen = false;
+      } else {
+        this.sidebarOptionsOpen = false;
+        this.sidebarLanOpen = true;
       }
-      else {
-        this.sidebarOptionsOpen = false
-        this.sidebarLanOpen = true
-      }
-    }
+    },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -164,8 +176,7 @@ img {
   gap: 4vw;
 }
 
-
-.header-content>div {
+.header-content > div {
   flex: 1;
   display: flex;
   gap: 2.5vw;

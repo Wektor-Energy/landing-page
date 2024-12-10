@@ -4,14 +4,14 @@
 </template>
 
 <script>
-import LandingPage from './views/LandingPage.vue'
+import LandingPage from "./views/LandingPage/LandingPage.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    LandingPage
-  }
-}
+    LandingPage,
+  },
+};
 </script>
 
 <style>
