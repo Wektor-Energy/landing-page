@@ -1,0 +1,33 @@
+:root {
+    --Scale-3: 16px;
+    --w-regular: 400;
+    --w-semibold: 600;
+
+    --White: #fff;
+    --Black: #000;
+    --Silver-100: #F9F9F9;
+    --Silver-300: #E5E5E5;
+    --Silver-600: #BFBFBF;
+
+    --Bluebird-100: #F2F7F8;
+    --Bluebird-700: #008A9F;
+    --Blue-100: #F2F7F8;
+    --Blue-300: #C6DCE3;
+
+    --primary-600: #009AB2;
+    --primary-700: #008A9F;
+    --secondary-600: #EAB817;
+    --secondary-700: #D1A515;
+
+    --sds-size-radius-200: 8px;
+
+    --sds-size-space-200: 8px;
+    --sds-size-space-300: 12px;
+    --sds-size-space-400: 16px;
+
+    --font-primary: 'Inter', sans-serif;
+    --sds-typography-body-font-family: Inter, sans-serif;
+    --sds-typography-body-size-medium: var(--Scale-3);
+    --sds-typography-body-font-weight-regular: var(--w-regular);
+    --sds-typography-body-font-weight-strong: var(--w-semibold);
+}

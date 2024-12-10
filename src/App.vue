@@ -1,6 +1,6 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
   <LandingPage />
+  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
 </template>
 
 <script>
@@ -15,12 +15,22 @@ export default {
 </script>
 
 <style>
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--primary-600);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
