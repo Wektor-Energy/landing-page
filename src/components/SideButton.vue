@@ -13,18 +13,10 @@ export default {
             type: Function,
             default: () => { },
         },
-        variant: {
-            type: String,
-            default: 'primary', // primary, secondary
-            validator(value) {
-                return value === 'primary' || value === 'secondary';
-            }
-        },
-    },
-    data() {
-        return {
-            sidebarOpened: false, // State for dropdown visibility
-        };
+        sidebarOpened: {
+            type: Boolean,
+            default: false
+        }
     },
     computed: {
         isOpen() {
@@ -39,7 +31,7 @@ export default {
     },
     methods: {
         toggleDropdown() {
-            this.sidebarOpened = !this.sidebarOpened;
+            this.onClick(!this.sidebarOpened)
         },
     },
 }

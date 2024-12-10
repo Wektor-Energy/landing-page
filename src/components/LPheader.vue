@@ -11,9 +11,9 @@
     <div class="header-options">
       <language-dropdown :options="options" :onClick="updateOptions" />
       <lp-button v-if="!isSmallScreen">Área do Cliente</lp-button>
-      <side-button v-if="isSmallScreen" />
+      <side-button v-if="isSmallScreen" :onClick="openSidebar" :sidebarOpened="sidebarOpen" />
     </div>
-    <div class="options-container">
+    <div class="options-container" v-if="sidebarOpen && isSmallScreen">
       <lp-button class="client-button">Área do Cliente</lp-button>
       <div v-for="(opt, index) in navOptions" :key="index">
         <h4>{{ opt }}</h4>
@@ -55,12 +55,16 @@ export default {
         { id: 2, long: 'English', short: 'EN', selected: false },
         // { id: 3, long: 'Option 3', short: 'O3', selected: false },
       ],
+      sidebarOpen: false
     };
   },
   methods: {
     updateOptions(id) {
       this.options.forEach(e => e.selected = e.id == id);
     },
+    openSidebar(isOpen) {
+      this.sidebarOpen = isOpen
+    }
   },
   computed: {
     cssVars() {
