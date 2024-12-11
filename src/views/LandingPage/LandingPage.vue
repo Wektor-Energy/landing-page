@@ -1,19 +1,21 @@
 <template>
   <lp-header :nav-options="navOptions" :onClick="goToSection" />
   <div class="content">
-    <about-us id="section_1" />
+    <about-us-section id="section_1" />
+    <solution-section id="section_2" />
   </div>
 </template>
 
 <script>
 import LpHeader from "@/components/LpHeader.vue";
-import { AboutUs } from "./Sections";
+import { AboutUs, Solution } from "./Sections";
 
 export default {
   name: "LandingPage",
   components: {
     "lp-header": LpHeader,
-    "about-us": AboutUs,
+    "about-us-section": AboutUs,
+    "solution-section": Solution,
   },
   data() {
     return {

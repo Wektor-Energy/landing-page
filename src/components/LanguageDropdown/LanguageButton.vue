@@ -37,8 +37,8 @@ export default {
     },
   },
   methods: {
-    toggleDropdown() {
-      this.onClick();
+    toggleDropdown(e) {
+      this.onClick(e);
     },
   },
 };

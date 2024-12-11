@@ -3,8 +3,8 @@
     <!-- <video autoplay muted loop>
       <source src="@/assets/videos/section1.png" type="image/jpg" />
     </video> -->
-    <div class="bg-image"></div>
     <div class="main-container">
+      <div class="bg-image"></div>
       <div class="presentation-section">
         <div class="main-text">
           <h1>
@@ -77,7 +77,7 @@ h1 label {
 img {
   min-width: var(--min-img-width);
   flex-shrink: 0;
-  flex: 1 1 47%;
+  object-fit: cover;
 }
 
 .about-section {
@@ -92,6 +92,10 @@ img {
   background: var(--primary-600);
 }
 
+.about-section > * {
+  flex: 1 1 47%;
+}
+
 .about-text {
   text-align: left;
   color: var(--White);
@@ -100,7 +104,6 @@ img {
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
-  flex: 1 1 47%;
 }
 
 .main-text {
@@ -108,6 +111,7 @@ img {
 }
 
 .bg-image {
+  z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
@@ -121,6 +125,7 @@ img {
 .main-container {
   z-index: 1;
   position: relative;
+  overflow: hidden;
 }
 
 .presentation-section {
