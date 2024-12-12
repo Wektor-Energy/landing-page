@@ -1,8 +1,5 @@
 <template>
-  <header
-    :class="['header-container', { 'phone-padding': isSmallScreen }]"
-    :style="cssVars"
-  >
+  <header :class="['header-container', { 'phone-padding': isSmallScreen }]">
     <div class="header-content">
       <img alt="Wektor logo" src="@/assets/images/logo1.png" />
       <div v-if="!isSmallScreen">
@@ -103,11 +100,6 @@ export default {
     };
   },
   computed: {
-    cssVars() {
-      return {
-        "--header-heigth": "80px",
-      };
-    },
     selectedLanguage() {
       return this.languages.find((e) => e.selected);
     },
@@ -150,7 +142,7 @@ export default {
 
 img {
   width: 120px;
-  height: 48px;
+  height: var(--Scale-8);
   flex-shrink: 0;
 }
 
@@ -164,7 +156,7 @@ img {
 
 .header-container {
   display: flex;
-  height: var(--header-heigth);
+  height: 80px;
   padding: 8px 46px;
   justify-content: space-between;
   align-items: center;
@@ -176,7 +168,7 @@ img {
   z-index: 2;
   position: absolute;
   left: 0%;
-  top: calc(0% + var(--header-heigth));
+  top: 80px;
   width: 100%;
 
   padding: 20px;
@@ -204,6 +196,6 @@ img {
 .header-options {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--Scale-3);
 }
 </style>

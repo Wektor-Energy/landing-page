@@ -56,6 +56,6 @@ export default {
 .button-style svg {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--Scale-3);
 }
 </style>

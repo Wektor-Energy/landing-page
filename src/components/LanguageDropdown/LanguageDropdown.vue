@@ -93,7 +93,7 @@ export default {
 }
 
 .option-style {
-  padding: 16px !important;
+  padding: var(--Scale-3) !important;
   cursor: pointer;
 }
 

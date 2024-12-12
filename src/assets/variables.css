@@ -1,5 +1,6 @@
 :root {
     --Scale-3: 16px;
+    --Scale-5: 24px;
     --Scale-6: 32px;
     --Scale-8: 48px;
     --w-regular: 400;
@@ -27,9 +28,12 @@
     --sds-size-space-300: 12px;
     --sds-size-space-400: 16px;
 
-    --sds-typography-title-page-font-family: Inter;
+    --sds-typography-title-page-font-family: Inter, Family Sans;
     --sds-typography-title-page-size-base: var(--Scale-8);
     --sds-typography-title-page-font-weight: var(--w-bold);
+    --sds-typography-heading-font-family: Inter, Family Sans;
+    --sds-typography-heading-size-base: var(--Scale-5);
+    --sds-typography-heading-font-weight:var(--w-semibold);
     --sds-typography-subtitle-size-base: var(--Scale-6);
     --sds-typography-subtitle-font-family: Inter;
 

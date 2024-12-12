@@ -14,6 +14,11 @@ export default {
 </script>
 
 <style>
+html,
+body {
+  height: 100%;
+}
+
 body {
   padding: 0;
   margin: 0;

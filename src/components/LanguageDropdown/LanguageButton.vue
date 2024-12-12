@@ -73,7 +73,7 @@ export default {
   color: var(--Black);
   text-align: center;
   font-family: var(--sds-typography-body-font-family);
-  font-size: 16px;
+  font-size: var(--sds-typography-body-size-medium);
   font-style: normal;
   font-weight: 500;
   line-height: 150%;

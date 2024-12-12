@@ -1,5 +1,5 @@
 <template>
-  <div :style="cssVars">
+  <div>
     <!-- <video autoplay muted loop>
       <source src="@/assets/videos/section1.png" type="image/jpg" />
     </video> -->
@@ -51,11 +51,6 @@ export default {
       threshold,
     };
   },
-  computed: {
-    cssVars() {
-      return { "--min-img-width": `${this.threshold / 2}px` };
-    },
-  },
 };
 </script>
 <style scoped>
@@ -75,7 +70,7 @@ h1 label {
 }
 
 img {
-  min-width: var(--min-img-width);
+  min-width: 0px;
   flex-shrink: 0;
   object-fit: cover;
 }
@@ -86,8 +81,8 @@ img {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 48px;
-  padding: 48px 46px;
+  gap: var(--Scale-8);
+  padding: var(--Scale-8) 46px;
   border-radius: 64px;
   background: var(--primary-600);
 }
