@@ -18,6 +18,25 @@
         :Image="card.Image"
       />
     </div>
+    <div class="section-3">
+      <div class="section-description-container">
+        <div class="description-header section-title">
+          <label>GESTÃO INTELIGENTE</label>
+          <a>Maior precisão e rentabilidade<label>.</label></a>
+        </div>
+        <a>
+          A partir dos dados, a Inteligência Artificial Generativa realiza
+          análises complexas, relatórios e direcionamentos de gestão, evitando
+          possíveis falhas humanas nas interpretações e nas tomadas de
+          decisões.<br /><br />
+          Tudo para aumentar a rentabilidade do negócio. Assista ao vídeo:
+        </a>
+      </div>
+      <div class="video-section">
+        <img alt="Video 2" src="@/assets/videos/section2.png" />
+        <!-- <img alt="Solar Engenieer" src="@/assets/images/worker.jpg" /> -->
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -89,17 +108,66 @@ export default {
   flex: 1 1 30%;
 }
 
+.section-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--Scale-8);
+}
+
+.section-description-container {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--Scale-8);
+  flex-shrink: 0;
+}
+
+.section-description-container > a {
+  align-self: stretch;
+  text-align: left;
+  color: var(--Black, #000);
+  font-family: var(--sds-typography-subheading-font-family);
+  font-size: var(--sds-typography-subheading-size-medium);
+  font-style: normal;
+  font-weight: var(--sds-typography-subheading-font-weight);
+  line-height: 150%;
+}
+
+.description-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--Scale-5);
+  align-self: stretch;
+}
+
+.description-header > label {
+  color: var(--primary-600);
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-style: normal;
+  font-weight: var(--sds-typography-body-font-weight-strong);
+  line-height: 140%;
+}
+
+.video-section {
+  flex: 1 1 50%;
+}
+
 .img-section {
   display: flex;
   overflow: hidden;
   height: 200px;
-  border-radius: var(--Scale-3);
 }
 
+.video-section > img,
 .img-section > img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: var(--Scale-3);
 }
 
 a > label {
@@ -107,6 +175,7 @@ a > label {
 }
 
 .section-title {
+  color: var(--primary-1000);
   font-family: var(--sds-typography-title-page-font-family);
   font-size: var(--sds-typography-title-page-size-base);
   font-style: normal;
@@ -115,6 +184,5 @@ a > label {
   letter-spacing: -0.96px;
   text-align: left;
   display: flex;
-  align-items: center;
 }
 </style>
