@@ -1,42 +1,33 @@
 <template>
-  <div>
-    <!-- <video autoplay muted loop>
-      <source src="@/assets/videos/section1.png" type="image/jpg" />
-    </video> -->
-    <div class="main-container">
-      <div class="video-container">
-        <video loop muted autoplay>
-          <source src="@/assets/videos/background.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+  <div class="section-container">
+    <div class="video-container">
+      <video loop muted autoplay>
+        <source src="@/assets/videos/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="presentation-section">
+      <div class="main-text">
+        <h1>
+          AI solutions<br />
+          for green energy<label>.</label>
+        </h1>
       </div>
-      <div class="presentation-section">
-        <div class="main-text">
-          <h1>
-            AI solutions<br />
-            for green energy<label>.</label>
-          </h1>
-        </div>
-        <lp-button
-          variant="secondary"
-          :style="{ alignSelf: isSmallScreen ? 'stretch' : 'auto' }"
-        >
-          Fale com um especialista
-        </lp-button>
+      <lp-button
+        variant="secondary"
+        :style="{ alignSelf: isSmallScreen ? 'stretch' : 'auto' }"
+      >
+        Fale com um especialista
+      </lp-button>
+    </div>
+    <div class="about-section">
+      <div class="about-text">
+        <a>
+          Somos uma plataforma inovadora que aplica
+          <b>inteligência artificial</b> na gestão de <b>ativos de energia</b>.
+        </a>
       </div>
-      <div class="about-section">
-        <div class="about-text">
-          <a>
-            Somos uma plataforma inovadora que aplica
-            <b>inteligência artificial</b> na gestão de
-            <b>ativos de energia</b>.
-          </a>
-        </div>
-        <img
-          alt="Wektor Solution Example"
-          src="@/assets/images/wektor_ex.png"
-        />
-      </div>
+      <img alt="Wektor Solution Example" src="@/assets/images/wektor_ex.png" />
     </div>
   </div>
 </template>
@@ -66,7 +57,7 @@ h1 {
   font-size: var(--sds-typography-title-page-size-base);
   font-style: normal;
   font-weight: var(--sds-typography-title-page-font-weight);
-  line-height: 140%; /* 67.2px */
+  line-height: 140%;
   letter-spacing: -0.96px;
 }
 
@@ -125,10 +116,11 @@ video {
   object-fit: cover;
 }
 
-.main-container {
+.section-container {
   z-index: 1;
   position: relative;
   overflow: hidden;
+  background-color: var(--White);
 }
 
 .presentation-section {

@@ -76,10 +76,9 @@ export default {
 </script>
 <style scoped>
 .section-container {
-  margin: -80px 0px;
-  padding: 128px 46px;
+  padding: 48px 46px;
   align-items: center;
-  background-color: var(--primary-100);
+  background-color: var(--White);
   display: flex;
   flex-direction: column;
   gap: var(--Scale-8);
@@ -91,6 +90,7 @@ export default {
 }
 
 .section-1 {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -155,13 +155,13 @@ export default {
 }
 
 .video-section {
-  flex: 1 1 50%;
+  flex: 1 1 60%;
 }
 
 .img-section {
   display: flex;
   overflow: hidden;
-  height: 200px;
+  aspect-ratio: 2.5/1;
 }
 
 .video-section > video,

@@ -3,12 +3,13 @@
   <div class="content">
     <about-us-section id="section_1" />
     <solution-section id="section_2" />
+    <advantages-section id="section_3" />
   </div>
 </template>
 
 <script>
 import LpHeader from "@/components/LpHeader.vue";
-import { AboutUs, Solution } from "./Sections";
+import { AboutUs, Advantages, Solution } from "./Sections";
 
 export default {
   name: "LandingPage",
@@ -16,6 +17,7 @@ export default {
     "lp-header": LpHeader,
     "about-us-section": AboutUs,
     "solution-section": Solution,
+    "advantages-section": Advantages,
   },
   data() {
     return {

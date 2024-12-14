@@ -60,8 +60,8 @@ export default {
 
 .button-clicked,
 .button-style.no-hover:hover {
-  border: 1px solid var(--Blue-300);
-  background: var(--Blue-100);
+  border: 1px solid var(--primary-300);
+  background: var(--primary-100);
 }
 
 .button-style.no-hover:hover {
