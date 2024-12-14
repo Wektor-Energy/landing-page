@@ -4,7 +4,12 @@
       <source src="@/assets/videos/section1.png" type="image/jpg" />
     </video> -->
     <div class="main-container">
-      <div class="bg-image"></div>
+      <div class="video-container">
+        <video loop muted autoplay>
+          <source src="@/assets/videos/background.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <div class="presentation-section">
         <div class="main-text">
           <h1>
@@ -105,16 +110,19 @@ img {
   text-align: left;
 }
 
-.bg-image {
-  z-index: -1;
+.video-container {
   position: absolute;
-  top: 0;
-  left: 0;
+  overflow: hidden;
+  z-index: -1;
   width: 100%;
   height: 75%;
-  background: url("@/assets/videos/section1.png") center center no-repeat;
-  background-size: cover;
-  object-fit: contain;
+}
+
+video {
+  top: 0;
+  left: 0;
+  width: max(100%, 1440px);
+  object-fit: cover;
 }
 
 .main-container {

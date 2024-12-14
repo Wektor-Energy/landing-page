@@ -33,8 +33,10 @@
         </a>
       </div>
       <div class="video-section">
-        <img alt="Video 2" src="@/assets/videos/section2.png" />
-        <!-- <img alt="Solar Engenieer" src="@/assets/images/worker.jpg" /> -->
+        <video controls>
+          <source src="@/assets/videos/presentation.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </div>
@@ -162,7 +164,7 @@ export default {
   height: 200px;
 }
 
-.video-section > img,
+.video-section > video,
 .img-section > img {
   width: 100%;
   height: auto;
